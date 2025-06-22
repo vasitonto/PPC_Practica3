@@ -1,0 +1,10 @@
+<!ELEMENT report (datos)>
+<!ATTLIST report
+	servername CDATA #REQUIRED
+	formato CDATA #REQUIRED
+	tipo CDATA #REQUIRED>
+<!ELEMENT datos (precipitacion)>
+<!ELEMENT precipitacion (tipo, intensidad, cantidad)>
+<!ELEMENT tipo (#PCDATA)> 
+<!ELEMENT intensidad (#PCDATA)> 
+<!ELEMENT cantidad (#PCDATA)> 

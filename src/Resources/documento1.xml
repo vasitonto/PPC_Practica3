@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report servername="Server1" formato="XML" tipo="agua">
+	<datos>
+	    <agua>
+	        <temperatura>22</temperatura>
+	        <nivel>31</nivel>
+	        <ph>50</ph>
+	    </agua>
+	</datos>
+</report>

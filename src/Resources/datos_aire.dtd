@@ -1,0 +1,12 @@
+<!ELEMENT report (datos)>
+<!ATTLIST report
+	servername CDATA #REQUIRED
+	formato CDATA #REQUIRED
+	tipo CDATA #REQUIRED>
+<!ELEMENT datos (viento)> 
+<!ELEMENT viento (temperatura, humedad, direccion, velocidad)>
+<!ELEMENT temperatura (#PCDATA)>
+<!ELEMENT velocidad (#PCDATA)>
+<!ELEMENT humedad (#PCDATA)>
+<!ELEMENT direccion (#PCDATA)>
+<!ATTLIST direccion orientacion (Norte | Sur | Este | Oeste | Noroeste | Noreste | Suroeste | Sureste) #REQUIRED>

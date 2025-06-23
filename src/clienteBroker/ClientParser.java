@@ -60,7 +60,7 @@ public static String parsearPaqueteXML(String msg) {
 				String temperaturaAgua = ((Element) nodoValores).getElementsByTagName("temperatura").item(0).getTextContent();
 				String nivel = ((Element) nodoValores).getElementsByTagName("nivel").item(0).getTextContent();
 				String ph = ((Element) nodoValores).getElementsByTagName("ph").item(0).getTextContent();
-				texto += "temperatura: " + temperaturaAgua + "�C, nivel: " + nivel + "cm, ph: " + ph + "\n\n";
+				texto += "temperatura: " + temperaturaAgua + "\u00B0C, nivel: " + nivel + "cm, ph: " + ph + "\n\n";
 				return texto;
 				
 			case "aire":				
@@ -69,7 +69,7 @@ public static String parsearPaqueteXML(String msg) {
 				String humedad = ((Element) nodoValores).getElementsByTagName("humedad").item(0).getTextContent();
 				String direccion = ((Element) nodoValores).getElementsByTagName("direccion").item(0).getTextContent();
 				String velocidad = ((Element) nodoValores).getElementsByTagName("velocidad").item(0).getTextContent();
-				texto += "temperatura: " + temperaturaViento + "�C, humedad: " + humedad 
+				texto += "temperatura: " + temperaturaViento + "\u00B0C, humedad: " + humedad 
 						+ "%, direccion: " + direccion + ", velocidad: " + velocidad + "km/h\n\n";
 				return texto;
 				
@@ -109,7 +109,7 @@ public static String parsearPaqueteXML(String msg) {
                 int temperatura = valores.get("temperatura").getAsInt();
                 int nivel = valores.get("nivel").getAsInt();
                 String ph = valores.get("ph").getAsString();
-                texto += "temperatura: " + temperatura + "�C, nivel: " + nivel + "cm, ph: " + ph + "\n\n";
+                texto += "temperatura: " + temperatura + "\u00B0C, nivel: " + nivel + "cm, ph: " + ph + "\n\n";
                 break;
 
             case "aire":
@@ -117,8 +117,8 @@ public static String parsearPaqueteXML(String msg) {
                 int velocidad = valores.get("velocidad").getAsInt();
                 int humedad = valores.get("humedad").getAsInt();
                 String direccion = valores.get("direccion").getAsString();
-                texto += "temperatura: " + tempAire + "�C, velocidad: " + velocidad + "km/h, CO2: " 
-                		+ humedad + "%, direcci�n: " + direccion + "\n\n";
+                texto += "temperatura: " + tempAire + "\u00B0C, velocidad: " + velocidad + "km/h, CO2: " 
+                		+ humedad + "%, direcci\u00F3n: " + direccion + "\n\n";
                 break;
 
             case "precipitacion":

@@ -1,0 +1,14 @@
+> /index.html (o "/")
+
+> /meteorologia.html
+
+> /apirest
+	|
+	|
+	>/num Servidor (1, 2 o 3)
+		|
+		>/control
+		|	|
+		|	>/mensaje de control (cambia_freq, envia_json, envia_xml, stop, continue)
+		|
+		>/valores -> muestra los valores del servidor

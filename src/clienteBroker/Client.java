@@ -220,7 +220,7 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
     	btnStop.setAlignmentX(Component.CENTER_ALIGNMENT);
     	btnStop.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
-    			exec.submit(() -> enviaControl(ControlCodes.STOP));
+    			exec.submit(() -> enviaControlGUI(ControlCodes.STOP));
     		}
     	});
     	panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.Y_AXIS));
@@ -236,7 +236,7 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				exec.submit(() -> enviaControl(ControlCodes.CONTINUE));
+				exec.submit(() -> enviaControlGUI(ControlCodes.CONTINUE));
 			}
 		});
     	
@@ -268,7 +268,7 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				exec.submit(() -> enviaControl(ControlCodes.MOD_FREQ));
+				exec.submit(() -> enviaControlGUI(ControlCodes.MOD_FREQ));
 			}
 		});
     	
@@ -287,7 +287,7 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				exec.submit(() -> enviaControl(ControlCodes.SEND_XML));
+				exec.submit(() -> enviaControlGUI(ControlCodes.SEND_XML));
 			}
 		});
     	
@@ -300,7 +300,7 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				exec.submit(() -> enviaControl(ControlCodes.SEND_JSON));
+				exec.submit(() -> enviaControlGUI(ControlCodes.SEND_JSON));
 			}
 		});
     	
@@ -319,7 +319,7 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
 	    			DatagramPacket pak = new DatagramPacket(buf, buf.length);
 	    			socketListen.receive(pak);
 	    			String msg = new String(pak.getData(), 0, pak.getLength());
-	    			String id = pak.getSocketAddress().toString();
+	    			int id = Integer.parseInt(msg.substring(msg.indexOf("Server")+6,msg.indexOf("Server")+7));
 	    			String datos = "";
 	    			if(msg.startsWith("<")) 
 	    				datos = ClientParser.parsearPaqueteXML(msg);
@@ -339,7 +339,7 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
     }
     
     //TODO ver si llega de un sitio o de otro y actuar en consecuencia
-    public void enviaControl(ControlCodes codigo) {
+    public void enviaControlGUI(ControlCodes codigo) {
     	int serverSelection = comboBox.getSelectedIndex();
     	
     	byte [] bufResp;
@@ -356,33 +356,44 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
     	}
     	else bufResp = ClientParser.creaControl(codigo, 0).getBytes();
     	
-		DatagramPacket resp = new DatagramPacket(bufResp, serverSelection);
+    	printea("CONTROL: enviando " + codigo + " al server " + String.valueOf(serverSelection) + "\n");
+    	
+    	enviaControl(bufResp, serverSelection);
+    }
+    
+    @Override
+    public void notifyControlHTTP(ControlCodes codigo, int serverSelection, int dato) {
+    	byte[] bufResp = ClientParser.creaControl(codigo, dato).getBytes();
+    	printea("CONTROL: enviando " + codigo + " al server " + String.valueOf(serverSelection) + "desde la página HTTP.\n");
+    	enviaControl(bufResp, serverSelection-1);
+    }
+    
+    
+    public void enviaControl(byte[] mensaje, int serverSelection) {
+
+    	
+		DatagramPacket resp = new DatagramPacket(mensaje, serverSelection);
 		try {
 			socketCtrl.setSoTimeout(5000);
-			resp = new DatagramPacket(bufResp, bufResp.length, InetAddress.getLocalHost(), serverPorts[serverSelection]);
-		} catch (SocketException e1) {
-			e1.printStackTrace();
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		}
-		printea("CONTROL: enviando " + codigo + " al " + (String) comboBox.getSelectedItem() + "\n");
-		for(int i = 0; i < 3; i++) {
-			if (i > 0) SwingUtilities.invokeLater(() ->printea("CONTROL: Reintentando enviar mensaje de control...\n\n"));
-			try {
-				socketCtrl.send(resp); 					
-				byte[] buf = new byte[256];
-				DatagramPacket ack = new DatagramPacket(buf, buf.length);
-				socketCtrl.receive(ack);
-				String ackStr = new String(ack.getData(), 0, ack.getLength());
-				
-				SwingUtilities.invokeLater(() ->printea("CONTROL: " + ackStr + "\n\n"));
-				return;
-			} catch(SocketTimeoutException sockEx) {
-				SwingUtilities.invokeLater(() ->printea("CONTROL: No se ha recibido confirmaci�n del servidor. \n\n"));
-				continue;
-			} catch (IOException e) {
-				e.printStackTrace();
+			resp = new DatagramPacket(mensaje, mensaje.length, InetAddress.getLocalHost(), serverPorts[serverSelection]);
+			for(int i = 0; i < 3; i++) {
+				if (i > 0) SwingUtilities.invokeLater(() ->printea("CONTROL: Reintentando enviar mensaje de control...\n\n"));
+				try {
+					socketCtrl.send(resp); 					
+					byte[] buf = new byte[256];
+					DatagramPacket ack = new DatagramPacket(buf, buf.length);
+					socketCtrl.receive(ack);
+					String ackStr = new String(ack.getData(), 0, ack.getLength());
+					
+					SwingUtilities.invokeLater(() ->printea("CONTROL: " + ackStr + "\n\n"));
+					return;
+				} catch(SocketTimeoutException sockEx) {
+					SwingUtilities.invokeLater(() ->printea("CONTROL: No se ha recibido confirmaci�n del servidor. \n\n"));
+					continue;
+				}
 			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
     
@@ -409,7 +420,7 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-    	exec.submit(() -> new P1Server(this));
+    	exec.submit(() -> new P1Server(this).run());
     	exec.submit(() -> recibePaquete());
     }
 }

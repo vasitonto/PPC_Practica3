@@ -5,30 +5,30 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class DataBroker {
 
-	private final static Map<String, String> parsedDataStore = new ConcurrentHashMap<>();
-	private final static Map<String, String> rawDataStore = new ConcurrentHashMap<>();
+	private final static Map<Integer, String> parsedDataStore = new ConcurrentHashMap<>();
+	private final static Map<Integer, String> rawDataStore = new ConcurrentHashMap<>();
 	
-	public static void addDatos(String id, String datos) {
+	public static void addDatos(int id, String datos) {
         parsedDataStore.put(id, datos);
     }
 
-    public static Map<String, String> obtenerTodos() {
+    public static Map<Integer, String> obtenerTodos() {
         return parsedDataStore;
     }
 
-    public static String obtener(String id) {
+    public static String obtener(int id) {
         return parsedDataStore.get(id);
     }
     
-	public static void addRawData(String id, String datos) {
+	public static void addRawData(int id, String datos) {
 		rawDataStore.put(id, datos);
 	}
 	
-	public static Map<String, String> obtenerTodosRaw() {
+	public static Map<Integer, String> obtenerTodosRaw() {
 		return rawDataStore;
 	}
 	
-	public static String obtenerRaw(String id) {
+	public static String obtenerRaw(int id) {
 		return rawDataStore.get(id);
 	}
 }

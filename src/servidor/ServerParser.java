@@ -39,7 +39,7 @@ public class ServerParser{
 		Gson gson = new Gson();
 		if(format == 0) {
 			reportAgua = "<?xml version=\"1.0\"?>\r\n"
-					+ "<report servername=\"Server " + id + "\" formato=\"XML\" tipo=\"agua\">\r\n"
+					+ "<report servername=\"Server" + id + "\" formato=\"XML\" tipo=\"agua\">\r\n"
 					+ "	 <datos>\r\n"
 					+ "	    <agua>\r\n"
 					+ "	        <temperatura>" + ThreadLocalRandom.current().nextInt(-30, 64) + "</temperatura>\r\n"
@@ -78,7 +78,7 @@ public class ServerParser{
 		Gson gson = new Gson();
 		if(format == 0) {
 			reportAire = "<?xml version=\"1.0\"?>\r\n"
-					+ "<report servername=\"Server " + id + "\" formato=\"XML\" tipo=\"aire\">\r\n"
+					+ "<report servername=\"Server" + id + "\" formato=\"XML\" tipo=\"aire\">\r\n"
 					+ "<datos>\r\n"
 					+ "<aire>\r\n"
 					+ "<temperatura>" + ThreadLocalRandom.current().nextInt(-30, 64) + "</temperatura>\r\n"
@@ -114,7 +114,7 @@ public class ServerParser{
 		String reportPrecip;
 		Gson gson = new Gson();
 		if(format == 0) {reportPrecip = "<?xml version=\"1.0\"?>\r\n"
-				+ "<report servername=\"Server " + id + "\" formato=\"XML\" tipo=\"precipitacion\">\r\n"
+				+ "<report servername=\"Server" + id + "\" formato=\"XML\" tipo=\"precipitacion\">\r\n"
 				+ "<datos>\r\n"
 				+ "<precipitacion>\r\n"
 				+ "<tipo>" + precipitacionTipo.values()[ThreadLocalRandom.current().nextInt(0, 4)] + "</tipo>\r\n"

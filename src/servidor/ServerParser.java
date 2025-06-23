@@ -100,7 +100,7 @@ public class ServerParser{
 	        aire.addProperty("temperatura", ThreadLocalRandom.current().nextInt(-30, 64));
 	        aire.addProperty("velocidad", ThreadLocalRandom.current().nextInt(0, 125));
 	        aire.addProperty("humedad", ThreadLocalRandom.current().nextInt(1, 101));
-	        aire.addProperty("direccion", aireDireccion.values()[ThreadLocalRandom.current().nextInt(0, 8)].toString()); // Ejemplo estático
+	        aire.addProperty("direccion", aireDireccion.values()[ThreadLocalRandom.current().nextInt(0, 8)].toString()); // Ejemplo estï¿½tico
 
 	        datos.add("aire", aire);
 	        report.add("datos", datos);

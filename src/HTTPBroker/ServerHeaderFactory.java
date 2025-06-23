@@ -22,7 +22,7 @@ public class ServerHeaderFactory {
 		String fechaHTTP = fecha.format(this.formato);
 		cabeceras += "Connection: keep-alive" + SALTO;
 		cabeceras += "Date: " + fechaHTTP + SALTO;
-		cabeceras += "Server: Server Java" + SALTO;
+		cabeceras += "P1Server: P1Server Java" + SALTO;
 		cabeceras += "Content-type: " + tipoContenido + SALTO;
 		cabeceras += "Content-length: " + lenContenido + SALTO;
 		return cabeceras;

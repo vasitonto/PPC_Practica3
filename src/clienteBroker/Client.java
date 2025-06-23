@@ -43,9 +43,10 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
+import HTTPBroker.P1Server;
 import Resources.ControlCodes;
 
-public class Client extends JFrame implements Runnable{
+public class Client extends JFrame implements Runnable, BrokerActionListener{
 		
 /**
 	 * 
@@ -85,7 +86,7 @@ public class Client extends JFrame implements Runnable{
 	private final DataBroker brokerDatos;
  
     public Client(DataBroker broker) {
-    	this.brokerDatos = broker;
+    	this.brokerDatos = new DataBroker();
     	// ################# CODIGO DE SOCKETS ###############
     	int puerto2 = this.portCtrl;
     	// Mediante este bucle se pueden lanzar varios clientes
@@ -318,10 +319,13 @@ public class Client extends JFrame implements Runnable{
 	    			DatagramPacket pak = new DatagramPacket(buf, buf.length);
 	    			socketListen.receive(pak);
 	    			String msg = new String(pak.getData(), 0, pak.getLength());
+	    			String id = pak.getSocketAddress().toString();
 	    			String datos = "";
 	    			if(msg.startsWith("<")) 
 	    				datos = ClientParser.parsearPaqueteXML(msg);
 	    			else datos = ClientParser.parsearPaqueteJSON(msg);
+	    			DataBroker.addDatos(id, datos);
+	    			DataBroker.addRawData(id, msg);
 
 	    			printea(datos);
 	//			} 
@@ -334,6 +338,7 @@ public class Client extends JFrame implements Runnable{
     	}
     }
     
+    //TODO ver si llega de un sitio o de otro y actuar en consecuencia
     public void enviaControl(ControlCodes codigo) {
     	int serverSelection = comboBox.getSelectedIndex();
     	
@@ -364,7 +369,7 @@ public class Client extends JFrame implements Runnable{
 		for(int i = 0; i < 3; i++) {
 			if (i > 0) SwingUtilities.invokeLater(() ->printea("CONTROL: Reintentando enviar mensaje de control...\n\n"));
 			try {
-				socketCtrl.send(resp); 
+				socketCtrl.send(resp); 					
 				byte[] buf = new byte[256];
 				DatagramPacket ack = new DatagramPacket(buf, buf.length);
 				socketCtrl.receive(ack);
@@ -404,6 +409,7 @@ public class Client extends JFrame implements Runnable{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+    	exec.submit(() -> new P1Server(this));
     	exec.submit(() -> recibePaquete());
     }
 }

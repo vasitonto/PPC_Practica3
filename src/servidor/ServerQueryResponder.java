@@ -14,7 +14,7 @@ public class ServerQueryResponder extends Thread {
 // 	posicion 0: id del servidor
 	// posicion 1: tipo del servidor [0: agua, 1: viento, 2: precipitaciones]
 	// posicion 2: formato de mensajes [0: xml, 1: json]
-	// posicion 3: 1/0 si está a 0 envia mensajes, si está a 0 no
+	// posicion 3: 1/0 si estï¿½ a 0 envia mensajes, si estï¿½ a 0 no
 	// posicion 4: intervalo de tiempo en ms durante el cual espera entre mensajes
 	private AtomicIntegerArray datos;
 	
@@ -34,11 +34,11 @@ public class ServerQueryResponder extends Thread {
 				SocketAddress returnAddr = query.getSocketAddress();
 				System.out.println("Recibido: " + querystr);
 				procesaSol(ServerParser.parseaCtrl(querystr));
-				String ackString = new String("Server "+ String.valueOf(datos.get(0)) + ": Se ha recibido el mensaje de control");
+				String ackString = new String("HTTPServer "+ String.valueOf(datos.get(0)) + ": Se ha recibido el mensaje de control");
 				byte[] buf2 = new byte[256];
 				buf2 = ackString.getBytes();
 				DatagramPacket ack = new DatagramPacket(buf2, buf2.length, returnAddr);
-//				socket.send(ack);
+				socket.send(ack);
 			}
 			catch(IOException e) {
 				e.printStackTrace();

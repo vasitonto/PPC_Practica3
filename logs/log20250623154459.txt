@@ -1,0 +1,230 @@
+Server 2 [formato: XML, datos: precipitacion]: tipo: Nieve, intensidad: Ligera, cantidad: 2371mm
+
+Server 1 [formato: XML, datos: agua]: temperatura: -29�C, nivel: 11cm, ph: 3.02
+
+Server 3 [formato: XML, datos: aire]: temperatura: 60�C, humedad: 61%, direccion: Noroeste, velocidad: 92km/h
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Nieve, intensidad: Suave, cantidad: 911mm
+
+Server 3 [formato: XML, datos: aire]: temperatura: -18�C, humedad: 39%, direccion: Este, velocidad: 114km/h
+
+Server 1 [formato: XML, datos: agua]: temperatura: 53�C, nivel: 30cm, ph: 7.31
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Granizo, intensidad: Ligera, cantidad: 2609mm
+
+Server 1 [formato: XML, datos: agua]: temperatura: 55�C, nivel: 29cm, ph: 2.24
+
+Server 3 [formato: XML, datos: aire]: temperatura: 21�C, humedad: 36%, direccion: Suroeste, velocidad: 96km/h
+
+Server 1 [formato: XML, datos: agua]: temperatura: 42�C, nivel: 14cm, ph: 6.18
+
+Server 3 [formato: XML, datos: aire]: temperatura: 35�C, humedad: 23%, direccion: Suroeste, velocidad: 31km/h
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Granizo, intensidad: Ligera, cantidad: 2875mm
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Lluvia, intensidad: Intensa, cantidad: 2321mm
+
+Server 1 [formato: XML, datos: agua]: temperatura: 25�C, nivel: 77cm, ph: 5.52
+
+Server 3 [formato: XML, datos: aire]: temperatura: 21�C, humedad: 56%, direccion: Norte, velocidad: 25km/h
+
+Server 3 [formato: XML, datos: aire]: temperatura: 63�C, humedad: 11%, direccion: Oeste, velocidad: 86km/h
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Nieve, intensidad: Nula, cantidad: 172mm
+
+Server 1 [formato: XML, datos: agua]: temperatura: 19�C, nivel: 69cm, ph: 5.41
+
+Server 1 [formato: XML, datos: agua]: temperatura: 33�C, nivel: 56cm, ph: 7.21
+
+Server 3 [formato: XML, datos: aire]: temperatura: 3�C, humedad: 6%, direccion: Norte, velocidad: 101km/h
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Lluvia, intensidad: Fuerte, cantidad: 581mm
+
+Server 1 [formato: XML, datos: agua]: temperatura: 46�C, nivel: 92cm, ph: 6.20
+
+Server 3 [formato: XML, datos: aire]: temperatura: -2�C, humedad: 13%, direccion: Suroeste, velocidad: 39km/h
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Lluvia, intensidad: Extrema, cantidad: 2566mm
+
+Server 3 [formato: XML, datos: aire]: temperatura: 56�C, humedad: 17%, direccion: Sureste, velocidad: 84km/h
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Lluvia, intensidad: Fuerte, cantidad: 2396mm
+
+Server 1 [formato: XML, datos: agua]: temperatura: -13�C, nivel: 51cm, ph: 4.66
+
+Server 3 [formato: XML, datos: aire]: temperatura: 0�C, humedad: 7%, direccion: Noroeste, velocidad: 112km/h
+
+Server 1 [formato: XML, datos: agua]: temperatura: 57�C, nivel: 15cm, ph: 5.87
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Nieve, intensidad: Ligera, cantidad: 458mm
+
+Server 3 [formato: XML, datos: aire]: temperatura: 52�C, humedad: 25%, direccion: Oeste, velocidad: 103km/h
+
+Server 1 [formato: XML, datos: agua]: temperatura: 14�C, nivel: 82cm, ph: 4.10
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Granizo, intensidad: Moderada, cantidad: 2211mm
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Lluvia, intensidad: Ligera, cantidad: 721mm
+
+Server 3 [formato: XML, datos: aire]: temperatura: -19�C, humedad: 54%, direccion: Noroeste, velocidad: 48km/h
+
+Server 1 [formato: XML, datos: agua]: temperatura: 0�C, nivel: 76cm, ph: 6.43
+
+Server 1 [formato: XML, datos: agua]: temperatura: -4�C, nivel: 79cm, ph: 6.26
+
+Server 3 [formato: XML, datos: aire]: temperatura: 35�C, humedad: 23%, direccion: Oeste, velocidad: 103km/h
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Nieve, intensidad: Nula, cantidad: 2820mm
+
+Server 1 [formato: XML, datos: agua]: temperatura: 57�C, nivel: 8cm, ph: 2.23
+
+Server 3 [formato: XML, datos: aire]: temperatura: -25�C, humedad: 25%, direccion: Norte, velocidad: 46km/h
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Nieve, intensidad: Nula, cantidad: 1913mm
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Lluvia, intensidad: Extrema, cantidad: 1815mm
+
+Server 3 [formato: XML, datos: aire]: temperatura: 31�C, humedad: 63%, direccion: Suroeste, velocidad: 0km/h
+
+Server 1 [formato: XML, datos: agua]: temperatura: 21�C, nivel: 33cm, ph: 6.94
+
+Server 1 [formato: XML, datos: agua]: temperatura: 50�C, nivel: 31cm, ph: 7.10
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Lluvia, intensidad: Extrema, cantidad: 914mm
+
+Server 3 [formato: XML, datos: aire]: temperatura: 58�C, humedad: 37%, direccion: Sur, velocidad: 43km/h
+
+Server 3 [formato: XML, datos: aire]: temperatura: 19�C, humedad: 72%, direccion: Noreste, velocidad: 10km/h
+
+Server 1 [formato: XML, datos: agua]: temperatura: -1�C, nivel: 90cm, ph: 4.95
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Tormenta, intensidad: Moderada, cantidad: 1677mm
+
+Server 3 [formato: XML, datos: aire]: temperatura: -20�C, humedad: 71%, direccion: Sur, velocidad: 17km/h
+
+Server 1 [formato: XML, datos: agua]: temperatura: -13�C, nivel: 61cm, ph: 3.88
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Lluvia, intensidad: Intensa, cantidad: 652mm
+
+Server 3 [formato: XML, datos: aire]: temperatura: -29�C, humedad: 1%, direccion: Noreste, velocidad: 41km/h
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Nieve, intensidad: Suave, cantidad: 2656mm
+
+Server 1 [formato: XML, datos: agua]: temperatura: 0�C, nivel: 18cm, ph: 5.27
+
+Server 3 [formato: XML, datos: aire]: temperatura: -5�C, humedad: 69%, direccion: Sureste, velocidad: 119km/h
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Nieve, intensidad: Intensa, cantidad: 2781mm
+
+Server 1 [formato: XML, datos: agua]: temperatura: -19�C, nivel: 80cm, ph: 4.27
+
+Server 3 [formato: XML, datos: aire]: temperatura: 30�C, humedad: 27%, direccion: Sureste, velocidad: 33km/h
+
+Server 1 [formato: XML, datos: agua]: temperatura: 28�C, nivel: 7cm, ph: 3.34
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Nieve, intensidad: Nula, cantidad: 849mm
+
+Server 3 [formato: XML, datos: aire]: temperatura: -7�C, humedad: 74%, direccion: Este, velocidad: 18km/h
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Granizo, intensidad: Suave, cantidad: 198mm
+
+Server 1 [formato: XML, datos: agua]: temperatura: -11�C, nivel: 68cm, ph: 7.07
+
+Server 3 [formato: XML, datos: aire]: temperatura: 55�C, humedad: 51%, direccion: Sur, velocidad: 38km/h
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Granizo, intensidad: Suave, cantidad: 2127mm
+
+Server 1 [formato: XML, datos: agua]: temperatura: 35�C, nivel: 38cm, ph: 5.27
+
+Server 3 [formato: XML, datos: aire]: temperatura: -15�C, humedad: 46%, direccion: Sureste, velocidad: 38km/h
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Tormenta, intensidad: Fuerte, cantidad: 1251mm
+
+Server 1 [formato: XML, datos: agua]: temperatura: 61�C, nivel: 56cm, ph: 4.25
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Lluvia, intensidad: Extrema, cantidad: 48mm
+
+Server 3 [formato: XML, datos: aire]: temperatura: 14�C, humedad: 77%, direccion: Sureste, velocidad: 43km/h
+
+Server 1 [formato: XML, datos: agua]: temperatura: 42�C, nivel: 26cm, ph: 3.81
+
+CONTROL: enviando STOP al Servidor 1
+Server 3 [formato: XML, datos: aire]: temperatura: 34�C, humedad: 44%, direccion: Sureste, velocidad: 52km/h
+
+Server 2 [formato: XML, datos: precipitacion]: tipo: Granizo, intensidad: Nula, cantidad: 303mm
+
+CONTROL: enviando STOP al Servidor 2
+Server 3 [formato: XML, datos: aire]: temperatura: 56�C, humedad: 15%, direccion: Suroeste, velocidad: 1km/h
+
+CONTROL: No se ha recibido confirmaci�n del servidor. 
+
+CONTROL: Reintentando enviar mensaje de control...
+
+CONTROL: enviando SEND_JSON al Servidor 3
+Server3 [formato: json, datos: aire]: temperatura: 24�C, velocidad: 89km/h, CO2: 87%, direcci�n: Suroeste
+
+Server3 [formato: json, datos: aire]: temperatura: 9�C, velocidad: 12km/h, CO2: 77%, direcci�n: Noroeste
+
+CONTROL: No se ha recibido confirmaci�n del servidor. 
+
+CONTROL: Reintentando enviar mensaje de control...
+
+Server3 [formato: json, datos: aire]: temperatura: 14�C, velocidad: 99km/h, CO2: 59%, direcci�n: Sureste
+
+CONTROL: No se ha recibido confirmaci�n del servidor. 
+
+CONTROL: Reintentando enviar mensaje de control...
+
+Server3 [formato: json, datos: aire]: temperatura: 12�C, velocidad: 102km/h, CO2: 75%, direcci�n: Sur
+
+Server3 [formato: json, datos: aire]: temperatura: 12�C, velocidad: 79km/h, CO2: 44%, direcci�n: Noreste
+
+CONTROL: No se ha recibido confirmaci�n del servidor. 
+
+CONTROL: Reintentando enviar mensaje de control...
+
+Server3 [formato: json, datos: aire]: temperatura: 0�C, velocidad: 28km/h, CO2: 73%, direcci�n: Norte
+
+Server3 [formato: json, datos: aire]: temperatura: 59�C, velocidad: 21km/h, CO2: 53%, direcci�n: Norte
+
+CONTROL: No se ha recibido confirmaci�n del servidor. 
+
+CONTROL: Reintentando enviar mensaje de control...
+
+Server3 [formato: json, datos: aire]: temperatura: -21�C, velocidad: 55km/h, CO2: 50%, direcci�n: Este
+
+CONTROL: No se ha recibido confirmaci�n del servidor. 
+
+Server3 [formato: json, datos: aire]: temperatura: 19�C, velocidad: 39km/h, CO2: 9%, direcci�n: Noroeste
+
+Server3 [formato: json, datos: aire]: temperatura: 40�C, velocidad: 23km/h, CO2: 68%, direcci�n: Noreste
+
+CONTROL: No se ha recibido confirmaci�n del servidor. 
+
+CONTROL: Reintentando enviar mensaje de control...
+
+Server3 [formato: json, datos: aire]: temperatura: -21�C, velocidad: 39km/h, CO2: 81%, direcci�n: Noreste
+
+Server3 [formato: json, datos: aire]: temperatura: 40�C, velocidad: 22km/h, CO2: 3%, direcci�n: Oeste
+
+CONTROL: No se ha recibido confirmaci�n del servidor. 
+
+Server3 [formato: json, datos: aire]: temperatura: 25�C, velocidad: 54km/h, CO2: 9%, direcci�n: Noreste
+
+CONTROL: No se ha recibido confirmaci�n del servidor. 
+
+Server3 [formato: json, datos: aire]: temperatura: 55�C, velocidad: 122km/h, CO2: 70%, direcci�n: Oeste
+
+Server3 [formato: json, datos: aire]: temperatura: -18�C, velocidad: 74km/h, CO2: 31%, direcci�n: Este
+
+Server3 [formato: json, datos: aire]: temperatura: -26�C, velocidad: 114km/h, CO2: 40%, direcci�n: Suroeste
+
+Server3 [formato: json, datos: aire]: temperatura: 42�C, velocidad: 45km/h, CO2: 38%, direcci�n: Sureste
+
+Server3 [formato: json, datos: aire]: temperatura: 19�C, velocidad: 95km/h, CO2: 87%, direcci�n: Sureste
+
+CONTROL: enviando STOP al Servidor 3
+CONTROL: No se ha recibido confirmaci�n del servidor. 
+
+CONTROL: Reintentando enviar mensaje de control...
+

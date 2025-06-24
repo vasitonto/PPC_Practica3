@@ -46,12 +46,12 @@ public class MailBroker implements Runnable {
 
 	private static final String APPLICATION_NAME = "Estacion de datos meteorologicos PPC";
 	private static final GsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
-	private static final String TOKENS_DIRECTORY_PATH = "tokens";
+	private static final String TOKENS_DIRECTORY_PATH = "/src/main/resources/tokens";
 	private static final String CREDENTIALS_FILE_PATH = "/credentials/credentials.json";
 
 	private final NetHttpTransport httpTransport; // Se inyecta en el constructor
 	private Gmail gmailService; // El servicio de Gmail autenticado
-	private final static int CHECK_INTERVAL = 20000;
+	private final static long CHECK_INTERVAL = 20000;
 	private volatile boolean running = true; // Para controlar el ciclo de ejecución
 
 	/**
@@ -99,9 +99,10 @@ public class MailBroker implements Runnable {
 
 		// Build flow and trigger user authorization request.
 		GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
-				HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, Set.of(GmailScopes.GMAIL_SEND, GmailScopes.GMAIL_READONLY))
+				HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, Set.of(GmailScopes.GMAIL_MODIFY))
 				.setDataStoreFactory(new FileDataStoreFactory(new java.io.File(TOKENS_DIRECTORY_PATH)))
 				.setAccessType("offline")
+				.setApprovalPrompt("force")
 				.build();
 		LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
 		Credential credential = new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
@@ -117,8 +118,9 @@ public class MailBroker implements Runnable {
 
             List<Message> messages = response.getMessages();
             if (messages == null || messages.isEmpty()) {
-                System.out.println("No se han encontrado mensajes nuevos.");
+                System.out.println("No se han encontrado correos nuevos.");
             } else {
+            	System.out.println("se han encontrado correos nuevos");
                 for (Message message : messages) {
                     processEmail(userId, message.getId());
                 }
@@ -137,8 +139,10 @@ public class MailBroker implements Runnable {
                     .execute();
 
             String subject = getHeader(fullMessage, "Subject");
+            System.out.println("recibido correo con asunto: " + subject);
             String from = getHeader(fullMessage, "From");
-
+            System.out.println("remitente: " + from);
+            
             if (subject != null && subject.toLowerCase().contains("valores")) {
 
                 // Simulate sending XML data (you can choose JSON or both)
@@ -148,12 +152,12 @@ public class MailBroker implements Runnable {
 
                 List<EmailAttachment> adjuntos = new ArrayList<>();
 
-                for (int i = 0; i < 3; i++) {
+                for (int i = 1; i < 4; i++) {
                     String rawData = DataBroker.obtenerRaw(i); // raw original (XML o JSON)
                     if (rawData != null) {
                         String mimeType = rawData.trim().startsWith("<") ? "application/xml" : "application/json";
                         String ext = mimeType.equals("application/xml") ? "xml" : "json";
-                        adjuntos.add(new EmailAttachment("Servidor" + (i+1) + "." + ext, mimeType,  rawData.getBytes()));
+                        adjuntos.add(new EmailAttachment("Servidor" + i + "." + ext, mimeType,  rawData.getBytes()));
                     }
                 }
                 // Create the response email
@@ -199,6 +203,10 @@ public class MailBroker implements Runnable {
 					throws MessagingException, IOException {
 
 		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
 		Session session = Session.getDefaultInstance(props, null);
 		MimeMessage email = new MimeMessage(session);
 
@@ -235,6 +243,7 @@ public class MailBroker implements Runnable {
 
         Message message = new Message();
         message.setRaw(encodedEmail);
+        System.out.println("Enviando mensaje: " + message.getRaw());
 
         return gmailService.users().messages().send(userId, message).execute();
     }
@@ -249,7 +258,6 @@ public class MailBroker implements Runnable {
 	public void run() {
 		while (running) {
 			try {
-				// Aquí usamos "me" porque damailbroker@gmail.com es la cuenta que se autentica.
 				checkEmails("me");
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -257,6 +265,7 @@ public class MailBroker implements Runnable {
 			try {
 				Thread.sleep(CHECK_INTERVAL);
 			} catch (InterruptedException ie) {
+				ie.printStackTrace();
 				Thread.currentThread().interrupt();
 				running = false;
 			}

@@ -4,12 +4,12 @@ import clienteBroker.DataBroker;
 
 public class HTMLResourceCreator {
 	
-	public static String creaIndex(String recurso) {
+	public static String creaIndex(String port) {
 		String doc = "<!DOCTYPE html>\r\n<html>\r\n<body>\r\n"
 				+ "<h2>Bienvenido al Broker de datos meteorol&oacutegicos</h2>\r\n"
 				+ ""
 				+ "<p>Desde aqu&iacute puedes consultar los datos proporcionados por las estaciones meteorol&oacutegicas </p>\r\n"
-				+ "<p>Pincha <a href=\"http://localhost:8000/meteorologia.html\">aqu&iacute</a>"
+				+ "<p>Pincha <a href=\"http://localhost:"+port+"/meteorologia.html\">aqu&iacute</a>"
 					+ " para acceder a los datos de todos los servidores</p>\r\n"
 				+ "<p>Tambi&eacuten puedes hacer peticiones a nuestra API. Abajo encontrar&aacutes los comandos disponibles</p>\r\n"
 				//TODO cambiar el mailto
@@ -35,10 +35,10 @@ public class HTMLResourceCreator {
 				+ "<br>"
 				+ "<h3>Algunos ejemplos</h3>\r\n"
 				+ "<ul>\r\n"
-					+ "<li><a href=\"http://localhost:8000/apirest/2/valores\">http://localhost:8000/apirest/2/valores</a></li>\r\n"
-					+ "<li><a href=\"http://localhost:8000/apirest/1/control/stop\">http://localhost:8000/apirest/1/control/stop</a></li>\r\n"
-					+ "<li><a href=\"http://localhost:8000/apirest/3/control/send_json\">http://localhost:8000/apirest/3/send_json</a></li>\r\n"
-					+ "<li><a href=\"http://localhost:8000/apirest/1/control/mod_freq?freq=2000\">http://localhost:8000/apirest/1/mod_freq?freq=2000</a></li>\r\n" 
+					+ "<li><a href=\"http://localhost:"+port+"/apirest/2/valores\">http://localhost:"+port+"/apirest/2/valores</a></li>\r\n"
+					+ "<li><a href=\"http://localhost:"+port+"/apirest/1/control/stop\">http://localhost:"+port+"/apirest/1/control/stop</a></li>\r\n"
+					+ "<li><a href=\"http://localhost:"+port+"/apirest/3/control/send_json\">http://localhost:"+port+"/apirest/3/send_json</a></li>\r\n"
+					+ "<li><a href=\"http://localhost:"+port+"/apirest/1/control/mod_freq?freq=2000\">http://localhost:"+port+"/apirest/1/mod_freq?freq=2000</a></li>\r\n" 
 				+ "</ul>\r\n"
 				+ "</body>\r\n</html>";
 		return doc;
@@ -79,10 +79,10 @@ public class HTMLResourceCreator {
 				+ "</body>\r\n</html>";
 	}
 	
-	public static String creaMensajeEnviado() {
+	public static String creaMensajeEnviado(String port) {
 		return "<!DOCTYPE html>\r\n<html>\r\n<body>\r\n"
 				+ "<h2>Mensaje enviado!</h2>\r\n"
-				+ "<p>Puedes volver a la p&aacutegina principal pinchando <a href=\"http://localhost:8000/index.html\">aqu&iacute</a>"
+				+ "<p>Puedes volver a la p&aacutegina principal pinchando <a href=\"http://localhost:"+port+"/index.html\">aqu&iacute</a>"
 				+ "</body>\r\n</html>";
 	}
 }

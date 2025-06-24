@@ -88,7 +88,7 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
 	private final DataBroker brokerDatos;
 	private MailBroker brokerMail;
  
-    public Client(DataBroker broker) {
+    public Client() {
     	this.exec = Executors.newFixedThreadPool(6);
     	this.brokerDatos = new DataBroker();
     	try {
@@ -96,6 +96,7 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
 		} catch (IOException | GeneralSecurityException e) {
 			System.err.println("Error: no se ha podido inicializar el servidor de correo. Inténtalo de nuevo.");
 			e.printStackTrace();
+			System.exit(1);
 		}
     	// ################# CODIGO DE SOCKETS ###############
     	int puerto2 = this.portCtrl;
@@ -409,7 +410,7 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
     
     
     public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Client(new DataBroker()));
+		SwingUtilities.invokeLater(new Client());
 		
 	}
     

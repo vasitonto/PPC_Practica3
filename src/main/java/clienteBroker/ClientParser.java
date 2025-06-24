@@ -125,7 +125,7 @@ public static String parsearPaqueteXML(String msg) {
             	String tipoPrecip = valores.get("tipo").getAsString();
             	String intensidad = valores.get("intensidad").getAsString();
                 int cantidad = valores.get("cantidad").getAsInt();
-                texto +=  "tipo: " + tipoPrecip + "intensidad: " + intensidad + "cantidad: " + cantidad + "mm\n\n";
+                texto +=  "tipo: " + tipoPrecip + ", intensidad: " + intensidad + ", cantidad: " + cantidad + "mm\n\n";
                 break;
 
             default:

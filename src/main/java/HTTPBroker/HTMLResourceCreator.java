@@ -5,15 +5,17 @@ import clienteBroker.DataBroker;
 public class HTMLResourceCreator {
 	
 	public static String creaIndex(String port) {
+		String puerto = port;
+		String protocol = (port.equals("8000")) ? "http" : "https";
+		
 		String doc = "<!DOCTYPE html>\r\n<html>\r\n<body>\r\n"
 				+ "<h2>Bienvenido al Broker de datos meteorol&oacutegicos</h2>\r\n"
 				+ ""
 				+ "<p>Desde aqu&iacute puedes consultar los datos proporcionados por las estaciones meteorol&oacutegicas </p>\r\n"
-				+ "<p>Pincha <a href=\"http://localhost:"+port+"/meteorologia.html\">aqu&iacute</a>"
+				+ "<p>Pincha <a href=\""+protocol+"://localhost:"+port+"/meteorologia.html\">aqu&iacute</a>"
 					+ " para acceder a los datos de todos los servidores</p>\r\n"
 				+ "<p>Tambi&eacuten puedes hacer peticiones a nuestra API. Abajo encontrar&aacutes los comandos disponibles</p>\r\n"
-				//TODO cambiar el mailto
-				+ "<p>Por &uacuteltimo, tambi&eacuten puedes recibir los datos por correo pinchando en <a href=\"mailto:m.bluth@example.com\">este enlace</a></p>\r\n"
+				+ "<p>Por &uacuteltimo, tambi&eacuten puedes recibir los datos por correo pinchando en <a href=\"mailto:damailbroka@gmail.com\">este enlace</a></p>\r\n"
 				+ "<p>Simplemente, env&iacutea un correo a esa direcci&oacuten</p>"
 				+ "<br>"
 				+ "<h3>Como usar la API REST</h3>\r\n"
@@ -35,10 +37,10 @@ public class HTMLResourceCreator {
 				+ "<br>"
 				+ "<h3>Algunos ejemplos</h3>\r\n"
 				+ "<ul>\r\n"
-					+ "<li><a href=\"http://localhost:"+port+"/apirest/2/valores\">http://localhost:"+port+"/apirest/2/valores</a></li>\r\n"
-					+ "<li><a href=\"http://localhost:"+port+"/apirest/1/control/stop\">http://localhost:"+port+"/apirest/1/control/stop</a></li>\r\n"
-					+ "<li><a href=\"http://localhost:"+port+"/apirest/3/control/send_json\">http://localhost:"+port+"/apirest/3/send_json</a></li>\r\n"
-					+ "<li><a href=\"http://localhost:"+port+"/apirest/1/control/mod_freq?freq=2000\">http://localhost:"+port+"/apirest/1/mod_freq?freq=2000</a></li>\r\n" 
+					+ "<li><a href=\""+protocol+"://localhost:"+port+"/apirest/2/valores\">"+protocol+"://localhost:"+port+"/apirest/2/valores</a></li>\r\n"
+					+ "<li><a href=\""+protocol+"://localhost:"+port+"/apirest/1/control/stop\">"+protocol+"://localhost:"+port+"/apirest/1/control/stop</a></li>\r\n"
+					+ "<li><a href=\""+protocol+"://localhost:"+port+"/apirest/3/control/send_json\">"+protocol+"://localhost:"+port+"/apirest/3/send_json</a></li>\r\n"
+					+ "<li><a href=\""+protocol+"://localhost:"+port+"/apirest/1/control/mod_freq?freq=2000\">"+protocol+"://localhost:"+port+"/apirest/1/mod_freq?freq=2000</a></li>\r\n" 
 				+ "</ul>\r\n"
 				+ "</body>\r\n</html>";
 		return doc;

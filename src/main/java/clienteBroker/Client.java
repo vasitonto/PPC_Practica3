@@ -367,7 +367,7 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
     	}
     	else bufResp = ClientParser.creaControl(codigo, 0).getBytes();
     	
-    	printea("CONTROL: enviando " + codigo + " al server " + String.valueOf(serverSelection) + "\n");
+    	printea("CONTROL: enviando " + codigo + " al server " + String.valueOf(serverSelection+1) + "\n");
     	
     	enviaControl(bufResp, serverSelection);
     }

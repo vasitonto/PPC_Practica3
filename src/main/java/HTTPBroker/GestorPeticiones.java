@@ -15,11 +15,13 @@ public class GestorPeticiones extends Thread {
 	private Socket s;
 	private BrokerActionListener brokerListener;
 	private String tipoContenido = "text/html";
+	private String puerto;
 	
-	public GestorPeticiones(Socket s, BrokerActionListener brokerListener) {
+	public GestorPeticiones(Socket s, BrokerActionListener brokerListener, int puerto) {
 		super("GestorPeticiones");
 		this.s = s;
 		this.brokerListener = brokerListener;
+		this.puerto = String.valueOf(puerto);
 	}
 	
 	@Override
@@ -66,7 +68,7 @@ public class GestorPeticiones extends Thread {
 				
 				//preparo la respuesta con cabeceras y un HTML que devuelve el recurso pedido
 				if(recurso.equals("/index.html") || recurso.equals("/")) {
-					cuerpoRespuesta = HTMLResourceCreator.creaIndex(recurso);
+					cuerpoRespuesta = HTMLResourceCreator.creaIndex(puerto);
 				}
 				else if (recurso.equals("/meteorologia.html") || recurso.equals("meteorologia")) {
 					cuerpoRespuesta = HTMLResourceCreator.creaMeteorologia();
@@ -144,6 +146,6 @@ public class GestorPeticiones extends Thread {
 		else {
 			return HTMLResourceCreator.crea400();
 		}
-		return HTMLResourceCreator.creaIndex(recurso);
+		return HTMLResourceCreator.creaIndex(puerto);
 	}
 }

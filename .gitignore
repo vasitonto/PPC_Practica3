@@ -1,4 +1,7 @@
 /target/
-/logs
+/logs/
 /logs/*
 /logs*
+credentials.json
+credentials/
+src/main/resources/credentials/

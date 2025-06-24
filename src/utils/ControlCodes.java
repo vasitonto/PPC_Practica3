@@ -1,4 +1,4 @@
-package Resources;
+package utils;
 
 public enum ControlCodes {
 	STOP,

@@ -21,7 +21,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import Resources.ControlCodes;
+import utils.ControlCodes;
 
 public class ClientParser {
 	//TODO hacer tratamiento de errores

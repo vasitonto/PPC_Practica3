@@ -6,9 +6,9 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-import Resources.ControlCodes;
 import clienteBroker.BrokerActionListener;
 import clienteBroker.DataBroker;
+import utils.ControlCodes;
 
 public class GestorPeticiones extends Thread {
 

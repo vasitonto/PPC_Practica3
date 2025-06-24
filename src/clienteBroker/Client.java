@@ -21,6 +21,7 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
+import java.security.GeneralSecurityException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.ExecutorService;
@@ -44,7 +45,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
 import HTTPBroker.P1Server;
-import Resources.ControlCodes;
+import mailBroker.MailBroker;
+import utils.ControlCodes;
 
 public class Client extends JFrame implements Runnable, BrokerActionListener{
 		
@@ -80,13 +82,21 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
 	private JButton btnStop;
 	private Component rigidArea;
 	private JLabel lblErrorMs;
-	private ExecutorService exec = Executors.newFixedThreadPool(6);
+	private ExecutorService exec;
 	private File logs;
 	private BufferedWriter logWriter;
 	private final DataBroker brokerDatos;
+	private MailBroker brokerMail;
  
     public Client(DataBroker broker) {
+    	this.exec = Executors.newFixedThreadPool(6);
     	this.brokerDatos = new DataBroker();
+    	try {
+			this.brokerMail = new MailBroker();
+		} catch (IOException | GeneralSecurityException e) {
+			System.err.println("Error: no se ha podido inicializar el servidor de correo. Inténtalo de nuevo.");
+			e.printStackTrace();
+		}
     	// ################# CODIGO DE SOCKETS ###############
     	int puerto2 = this.portCtrl;
     	// Mediante este bucle se pueden lanzar varios clientes
@@ -422,6 +432,7 @@ public class Client extends JFrame implements Runnable, BrokerActionListener{
 		}
     	exec.submit(() -> new P1Server(this).run());
     	exec.submit(() -> recibePaquete());
+    	exec.submit(() -> this.brokerMail.run());
     }
 }
     
